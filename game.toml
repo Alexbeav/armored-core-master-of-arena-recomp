@@ -1,0 +1,64 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Armored Core: Master of Arena"
+id = "SLUS-01030"
+players = 2
+exe = "disc/SLUS_010.30"
+# Verified as one program on N images (verify_disc_set.py).
+# Disc 1 boots; the rest are data. The runtime builds its disc
+# roster from this list and mounts the SELECTED one (remembered
+# in disc_index), so the launcher can switch discs between runs.
+# Swapping mid-session is MULTI_DISC.md P3 and is not implemented.
+discs = [
+    "disc/Armored Core - Master of Arena (USA) (Disc 1).cue",
+    "disc/Armored Core - Master of Arena (USA) (Disc 2).cue",
+]
+load_address = "0x80011000"
+entry_pc = "0x80011D84"
+text_size = "0x0002E000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Armored Core - Master of Arena (USA) (Disc 1).bin"
+cue_name = "Armored Core - Master of Arena (USA) (Disc 1).cue"
+boot_exe = "SLUS_010.30"
+known_sizes = [700507920]
+known_md5 = [
+  "4d5774c4baa65d6eaf281db59ee8e945",
+]
+known_sha1 = [
+  "96f5fcc9513ca47b19fd44bd72ee51c65a55cd43",
+]
+known_crc32 = [
+  "446ae06c",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+window_title = "Armored Core: Master of Arena Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "cc8bb1835c4010be72b82914edccb74b3413f94c523475e7aebaddd0149fcb02"

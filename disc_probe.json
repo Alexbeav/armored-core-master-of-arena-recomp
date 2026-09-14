@@ -1,0 +1,31 @@
+{
+  "cue_path": "I:\\Projects\\PSX-Ports-pilot\\_disc\\armored-core-master-of-arena\\Armored Core - Master of Arena (USA) (Disc 1).cue",
+  "cue_name": "Armored Core - Master of Arena (USA) (Disc 1).cue",
+  "bin_name": "Armored Core - Master of Arena (USA) (Disc 1).bin",
+  "track_count": 1,
+  "data_track_size": 700507920,
+  "data_track_md5": "4d5774c4baa65d6eaf281db59ee8e945",
+  "data_track_sha1": "96f5fcc9513ca47b19fd44bd72ee51c65a55cd43",
+  "data_track_crc32": "446ae06c",
+  "boot_exe": "SLUS_010.30",
+  "serial": "SLUS-01030",
+  "serial_exe": "SLUS_010.30",
+  "volume_id": "",
+  "display_name": "Armored Core: Master of Arena",
+  "load_address": "0x80011000",
+  "entry_pc": "0x80011D84",
+  "text_size": "0x0002E000",
+  "stack_base": "0x801FFFF0",
+  "require_cue": true,
+  "required_disc_fp": "cc8bb1835c4010be72b82914edccb74b3413f94c523475e7aebaddd0149fcb02",
+  "boot_exe_sha256": "de69feb31bcd58579b32e54bd4912cbfc1f8358ac745e16630a19647b7954192",
+  "seed_count": 374,
+  "warnings": [
+    "cue has only 1 TRACK \u2014 Track-01-only dumps fail multi-track netplay/catalog gates; prefer a full Redump cue."
+  ],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}
